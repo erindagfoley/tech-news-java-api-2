@@ -2,7 +2,7 @@ package com.technews.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -63,12 +63,12 @@ public class Comment implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Comment)) return false;
         Comment comment = (Comment) o;
-        return Objects.equals(id, comment.id) &&
-                Objects.equals(commentText, comment.commentText) &&
-                Objects.equals(userId, comment.userId) &&
-                Objects.equals(postId, comment.postId);
+        return Objects.equals(getId(), comment.getId()) &&
+                Objects.equals(getCommentText(), comment.getCommentText()) &&
+                Objects.equals(getUserId(), comment.getUserId()) &&
+                Objects.equals(getPostId(), comment.getPostId());
     }
 
     @Override
