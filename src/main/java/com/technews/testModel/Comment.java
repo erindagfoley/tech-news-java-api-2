@@ -63,12 +63,12 @@ public class Comment implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Comment)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
-        return Objects.equals(getId(), comment.getId()) &&
-                Objects.equals(getCommentText(), comment.getCommentText()) &&
-                Objects.equals(getUserId(), comment.getUserId()) &&
-                Objects.equals(getPostId(), comment.getPostId());
+        return Objects.equals(id, comment.id) &&
+                Objects.equals(commentText, comment.commentText) &&
+                Objects.equals(userId, comment.userId) &&
+                Objects.equals(postId, comment.postId);
     }
 
     @Override
