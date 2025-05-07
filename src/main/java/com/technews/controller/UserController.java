@@ -22,12 +22,12 @@ public class UserController {
     @GetMapping("/api/users")
     public List<User> getAllUsers() {
         List<User> userList = repository.findAll();
-        for (User u : userList) {
-            List<Post> postList = u.getPosts();
-            for (Post p : postList) {
-                p.setVoteCount(voteRepository.countVotesByPostId(p.getId()));
-            }
-        }
+//        for (User u : userList) {
+//            List<Post> postList = u.getPosts();
+//            for (Post p : postList) {
+//                p.setVoteCount(voteRepository.countVotesByPostId(p.getId()));
+//            }
+//        }
         return userList;
     }
 
